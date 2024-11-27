@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=ridexpert
+    volumes:
+    - polls_pg_data:/bitnami/postgresql
+    
+  frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./frontend
+      dockerfile: frontend.dockerfile
+    ports:
+      - 80:80
+    env_file: 
+      - .env
+    restart: always
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    image: backend
+    build:
+      context: ./backend
+      dockerfile: backend.dockerfile
+    ports:
+      - 8080:8080
+    env_file: 
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/ridexpert?schema=public
+    depends_on:
+      - postgres
+
+volumes:
+  polls_pg_data:

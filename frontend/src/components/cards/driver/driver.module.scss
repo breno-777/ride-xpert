@@ -1,0 +1,46 @@
+@use '@styles/variables' as *;
+
+.container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    border-bottom: 1px solid $gray-200-color;
+    padding-bottom: 0.5em;
+
+    transition: 0.3s ease-in-out;
+    transform: scale(1.01);
+
+    & .driver_main_details_container {
+        display: inline-flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    & .rating_container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    & .driver_description_container {
+        & .show_more_container {
+            display: flex;
+            gap: 1em;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & .driver_review {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        
+        & .hidden {
+            transition: 0.3s ease-out;
+            display: none;
+        }
+    }
+}

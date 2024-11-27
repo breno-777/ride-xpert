@@ -1,0 +1,71 @@
+@use '@styles/variables' as *;
+
+.container {
+    padding: 1em;
+    border-radius: 0.75em;
+    height: 100%;
+    background-color: $white-color;
+
+    & .title,
+    .reduce_title {
+        text-align: center;
+        color: $black-color;
+        padding-bottom: 0.25em;
+        font-size: 1.6em;
+    }
+
+    & .reduce_title {
+        display: none;
+    }
+
+    & .title.hidden {
+        display: none;
+    }
+
+    & .reduce_title.visible {
+        display: block;
+    }
+
+    & ul {
+        display: flex;
+        gap: 0.5em;
+        flex-direction: column;
+        cursor: pointer;
+
+        & li {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 0.25em 1em;
+            list-style: none;
+            border-radius: 0.3em;
+
+            transition: 0.3s ease-in-out;
+            color: $black-color;
+
+            &:hover {
+                color: $white-color;
+                background-color: $light-primary-color;
+            }
+
+            & .section_name_container{
+                display: flex;
+                align-items: center;
+                gap: 1em;
+            }
+        }
+
+        & .hidden .section_title {
+            display: none;
+        }
+
+        & .hidden {
+            padding: 0.25em 0.5em;
+        }
+
+        & .selected {
+            color: $white-color;
+            background-color: $light-primary-color;
+        }
+    }
+}

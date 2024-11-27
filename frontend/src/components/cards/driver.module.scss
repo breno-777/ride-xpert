@@ -1,0 +1,5 @@
+.container {
+    & .main_details_container {
+        display: flex;
+    }
+}

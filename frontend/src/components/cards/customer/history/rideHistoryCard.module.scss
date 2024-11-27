@@ -1,0 +1,24 @@
+@use '@styles/variables' as *;
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    padding: 0.5em;
+    align-items: center;
+
+    border: 2px solid transparent;
+    transition: 0.3s ease-in-out;
+    border-radius: 0.5em;
+
+
+    &:hover {
+        border-color: $light-primary-color;
+    }
+
+    & .detail_container {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+}

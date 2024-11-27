@@ -1,0 +1,12 @@
+@use '@styles/variables' as *;
+
+.container {
+    cursor: pointer;
+    display: flex;
+
+    border: 2px solid red;
+    
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
